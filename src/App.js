@@ -2,6 +2,7 @@ import { useEffect, useState , useMemo} from 'react';
 import './App.css';
 import Alltransactions from './Alltransactions';
 import Search from './Search';
+import AddTransactionForm from './AddTransactionForm';
 
 
 function App() {
@@ -27,6 +28,9 @@ function App() {
     
   },[])
 
+  function handleAddTransaction(newTransaction) {
+    setTransactions(prevTransactions => [...prevTransactions, newTransaction]);
+  }
  
   function deleteTransaction(id){
     fetch(`http://localhost:8001/transactions/${id}`, {
@@ -60,6 +64,7 @@ function App() {
     <>
      <h1>Bank of Flatiron</h1>
      <Search onSearch={handleSearch}/>
+     <AddTransactionForm onFormSubmit={handleAddTransaction}/>
      {isLoading && <p>Fetching the latest transactions</p>}
      {!isLoading && transactions.length > 0 &&
      <Alltransactions transactions={filtereditems} onDelete={deleteTransaction}/>
