@@ -1,6 +1,6 @@
 
 # Bank of Flatiron
-A react project for Bank of Flatiron allowing users to view, add and filter theri transactions.
+A react project for Bank of Flatiron allowing users to view, add and filter their transactions.
 
 ## Key Features
 *   **View Transactions:** Displays a comprehensive table of all recent bank transactions fetched from a local API.
